@@ -168,3 +168,8 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/TIL.iml
