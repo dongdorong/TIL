@@ -2,7 +2,7 @@
 
 ### 변수와 상수
 
-```objective-c
+```swift
 //변수
 var str = "Hello Dona"
 
@@ -33,7 +33,7 @@ Double(myInt) + myDouble
  - 숫자연산은 같은 타입끼리 가능
  
 ### 불린
-```objective-c
+```swift
 //AND 연산자 
 true && true    //true
 true && false   //false
@@ -50,7 +50,7 @@ var myBloolean = true
 ``` 
 
 ### 함수와 함수호출 1
-```objective-c
+```swift
 func welcome(name: String, className: String, message: String) {
     print("Hello :) \(name). welcome to \(className)/ \(message)")   
 }
@@ -60,7 +60,7 @@ welcome(name: "dona", className: "Swift", message: "반가워요!")
 ```
 
 ### 함수와 함수호출 2
-```objective-c
+```swift
 func welcome(Student name: String, className: String, _ message: String) {
     print("Hello :) \(name). welcome to \(className)/ \(message)")   
 }
@@ -71,7 +71,7 @@ welcome(Student: "dona", className: "Swift", "반가워요!")
 - 파라미터에 (_)를 추가해주면 호출할때 이름을 사용하지 않는다. 
 
 ### Return
-```objective-c
+```swift
 func add(x: Int, y: Int) -> Int {
     return x + y
 }
@@ -83,7 +83,7 @@ func add(x: Int, y: Int) -> Int {
  - (?)를 붙여서 옵셔널 표시
  - (!)를 붙이면 원래 타입으로 사용 - 값이 nil이 아닐때만 가
  
- ```objective-c
+ ```swift
 //옵셔널 변수의 값이 nil인지 확인할 때
 var optionalTest: String? = "Hello Dona"
  
