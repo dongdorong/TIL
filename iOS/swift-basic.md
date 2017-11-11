@@ -77,21 +77,3 @@ func add(x: Int, y: Int) -> Int {
 }
 ```
 - 리턴값을 주고 싶으면 (->) 화살표와 리턴하는 값의 자료형 설정
- 
- ### 옵셔널(Optional)
- - 값이 nil을 갖을 경우 사용
- - (?)를 붙여서 옵셔널 표시
- - (!)를 붙이면 원래 타입으로 사용 - 값이 nil이 아닐때만 가
- 
- ```swift
-//옵셔널 변수의 값이 nil인지 확인할 때
-var optionalTest: String? = "Hello Dona"
- 
- if let test = optionalTest {
-    print(test)
- } else {
-    print("변수 test의 값은 nil입니다.")
- }
-```
-- if let을 사용하면 optionalTest 변수가 nil일 경우 else 문이 실행, nil이 아닐 경우 optionalTest! 가 test에 지정되어 출력
- 

@@ -5,8 +5,8 @@
 
 ```swift
 class Account {
-    var owner: String   //문자열 property
-    var balance: Double //소수형 property
+    var owner: String   // 문자열 property
+    var balance: Double // 소수형 property
 }
 ```
 ### Mothods
@@ -34,8 +34,8 @@ var newAcoount = Account(owner: "dona", balance: 100000)
 
 #### 인스턴스 값 받아오기
 ```swift
-newAccount.owner    //dona
-newAccount.balance  //100000
+newAccount.owner    // dona
+newAccount.balance  // 100000
 ```
 
 #### 일반 Mothods
