@@ -2,7 +2,7 @@
 - 간단한 환전 어플을 만든다.
 - 한국, 미국, 일본, 중국, 영국, 캐나다 환전 어플
 
-![img](/img/Exchange.png){: width="300px"}
+<img src="/img/Exchange.png" width="300">
 
 ### 화면과 코드 연결 1
 ```swift
