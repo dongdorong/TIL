@@ -84,7 +84,7 @@ let flagNames = [
     
 ```
 - Segmented Control을 선택할 때마다 convertFrom / convertTo text를 "0"으로 초기화
-- currencyFromLabel / currencyToLabel의 값을 현재 내가 누른 Segmented값으로 변경하기 위해 **sender.titleForSegment(at: sender.selectedSegmentIndex)**를 사용한다.
+- currencyFromLabel / currencyToLabel의 값을 현재 내가 누른 Segmented값으로 변경하기 위해 **sender.titleForSegment(at: sender.selectedSegmentIndex)** 를 사용한다.
 
 #### sender.titleForSegment(at: sender.selectedSegmentIndex)
 - 현재 내가 선택한 타이틀의 인덱스 값을 받아온다.
