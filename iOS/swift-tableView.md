@@ -80,6 +80,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 ```
 
 ### 8. Alert 창으로 item 추가
+- 네비게이션 아이템을 IBOutlet 연결
 ```swift
 @IBAction func addItem(_ sender: UIBarButtonItem) {
 
