@@ -60,14 +60,7 @@ func numberOfSections(in tableView: UITableView) -> Int{
 ### 7. Array의 item을 tableView에 적용
 ```swift
 // 배열 정의
-var item = [
-    "iOS study",
-    "Python study",
-    "Playing with a Cat",
-    "House Clean",
-    "Walking",
-    "Watching TV All night"
-]
+var item: [String] = []
 
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return item.count // item array의 항목 개수만큼 리턴
@@ -84,4 +77,64 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     return cell
 }
 
+```
+
+### 8. Alert 창으로 item 추가
+```swift
+@IBAction func addItem(_ sender: UIBarButtonItem) {
+
+    // alert 생성
+    let alert = UIAlertController(title: "새로운 메모", message: "새로운 메모를 입력해주세요.", preferredStyle: UIAlertControllerStyle.alert)
+    
+    // textField 추가
+    alert.addTextField { (textField: UITextField) -> Void in
+    }
+    
+    // 저장
+    let saveAction = UIAlertAction(title: "저장", style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
+        
+        // nil 값이 있을 수 있기에 옵셔널
+        let newMemo = alert.textFields!.first!
+        
+        // newMemo가 nil이 아닐때 item배열에 추가
+        if newMemo.text! != "" {
+            self.item.append(newMemo.text!)
+        }
+    }
+    
+     self.myTableView.reloadData() // item을 저장한다.
+    
+    // 취소
+    let cancleAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in
+    }
+    
+    // 취소, 저장 버튼 추가
+    alert.addAction(cancleAction)
+    alert.addAction(saveAction)
+    
+    // 알럿창 띄우기:: 좀 더 공부 필요
+    present(alert, animated: true, completion: nil)
+
+}
+```
+- **UIAlertControllerStyle.alert** 또는 **.alert** 로 쓰인다. swift가 자동으로 UIAlertControllerStyle를 인식한다. (87 line)
+
+### 9. 삭제
+1. tableView IBOutlet 생성
+2. 스토리보드 tableView를 viewController의 delagate 연결
+- delagate:: viewController에서 tableView의 터치, 스와이프 등 실행하겠다는 명령어
+3. viewController에 UITableViewDelegate 추가
+4. 사용하려는 프로토콜 추가
+```swift
+@IBOutlet weak var myTableView: UITableView!
+
+// 어떤 행동을 취한 것인지 정해주는 프로토콜
+public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+    
+    // 삭제
+    if editingStyle == .delete {
+        item.remove(at: indexPath.row) // 배열에 아이템 삭제
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade) // 테이블뷰의 row삭제
+    }
+}
 ```
