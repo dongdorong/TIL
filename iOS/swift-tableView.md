@@ -139,3 +139,46 @@ public func tableView(_ tableView: UITableView, commit editingStyle: UITableView
     }
 }
 ```
+
+# 저장 가능 tableView
+- UserDefaults로 저장 가능한 테이블뷰 메모장을 만든다.
+
+### 1. 상수 추가
+```swift
+let dataKey = "data"
+```
+- escaping closure에 필요하다.
+
+### 2. viewDidLoad
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // 저장된 데이터가 있으면 items에 지정
+    // 저장된 데이터가 없으면 빈 배열 아이템 지정
+    if let dataArray = UserDefaults.standard.object(forKey: dataKey) as? [String] {
+        items = dataArray
+    } else {
+        items = []
+    }
+
+}
+```
+
+### 3. saveAction
+```swift
+if newMomo.text! != "" {
+    self.items.append(newMomo.text!)
+    UserDefaults.standard.set(self.items, forKey: self.dataKey) // escaping closure
+}
+```
+- newMomo.text!가 문자가 있을 때 item에 추가 해주고, UserDefaults로 저장 (escaping closure:: 함수가 끝난 후 실행)
+
+### 4. editingStyle
+```swift
+if editingStyle == .delete {
+    items.remove(at: indexPath.row)
+    UserDefaults.standard.set(items, forKey: dataKey) // none escaping closure -> self생략
+    myTableView.deleteRows(at: [indexPath], with: .fade)
+}
+```
