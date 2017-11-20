@@ -1,6 +1,8 @@
 # WebView
 - webview:: 인터넷 브라우저와 똑같은 기능
 
+<img src="/img/webview.png" width="300">
+
 ```swift
 @IBOutlet weak var webView: UIWebView!
 
