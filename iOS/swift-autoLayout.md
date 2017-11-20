@@ -28,3 +28,6 @@
     * View에 control + drag -> Equals widths 적용 
 4. View안에 컨텐츠들도 Constraints를 걸어준다.
     * centerX Center / Top (Size Inspector로 세세하게 잡아준다.)
+   
+# 화면고정
+- Developement Info의 Device Orientation:: Landscape Left / Landsacpe Right 해제
