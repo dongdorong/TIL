@@ -88,5 +88,24 @@ newDict.count
 ```
 - 사전의 개수를 리턴 받는다. 
 
+### 정보 정리하기 
+
+```swift
+let dataString = "dona: 27, dev: 31, anggo: 21"
+
+let dataSeparatedByComma = who.components(separatedBy: ",") // 콤마를 기준으로 정리 "dona: 27", "dev: 31", "anggo: 21"
+
+var dataDict: [String: Int] = [:]
+
+for element in dataSeparatedByComma{
+    let separatedByColon = element.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).components(separatedBy: ":") // 공배 제거 후 콜론을 기준으로 정리
+    
+    dataDict[separatedByColon[0]] = separatedByColon[1].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    
+    print(dataDict) // ["dona": 27, "dev": 31, "anggo": 21]
+}
+
+```
+
 
  
