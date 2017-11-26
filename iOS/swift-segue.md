@@ -17,6 +17,9 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 ```
 
 #### SecondViewController
+- button으로 Action Segue:: 버튼으로 다음 화면 show 지정
+- iOS에서 segue하기 전에 자동으로 불러와 주는 메서드
+- parameter로 받는 segue가 실제로 적용된 것을 사용
 ```swift
 // name을 받을 변수 지정
 var name = ""
@@ -28,15 +31,14 @@ override func viewDidLoad() {
     secondNameLable.text = name
 }
 ```
-- button으로 Action Segue:: 버튼으로 다음 화면 show 지정
-- iOS에서 segue하기 전에 자동으로 불러와 주는 메서드
-- parameter로 받는 segue가 실제로 적용된 것을 사용
 
 ### 어떤 값을 확인 한 후 segue하는 방법 (performSegue)
 - 맞는 값을 확인한 후 segue하려 할 때 사용
 - segue하기 전에 실행시킬 코드가 있을 때 사용
 
 #### FirstViewController
+- viewController로 Manual Segue:: 다음 화면 Show 
+- performSegue::  넘어가고 싶은 segue의 identifier를 적용 -> 조건이 맞으면 해당 화면으로 이동
 ```swift
 // UITextField
 @IBOutlet weak var pwLabel: UITextField!
@@ -49,4 +51,3 @@ override func viewDidLoad() {
     }
 }
 ```
-- performSegue::  넘어가고 싶은 segue의 identifier를 적용 -> 조건이 맞으면 해당 화면으로 이동
