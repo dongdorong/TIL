@@ -144,4 +144,15 @@ override func viewDidLoad() {
     }
     
 }
+```
+
+### for문으로 Data값 확인하기
+- `i.value(forKey: "name")!` / `i.value(forKey: "national")!` 빈배열에서 Entity에 Attribute 이름으로 value값을 찾는다. (optional type)
+
+```swift
+var people: [NSManagedObject] = []
+
+for i in people{
+    print("name: \(i.value(forKey: "name")!) \nnataional: \(i.value(forKey: "national")!) \n\n") 
+}
 ``` 
