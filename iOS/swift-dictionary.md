@@ -93,7 +93,7 @@ newDict.count
 ```swift
 let dataString = "dona: 27, dev: 31, anggo: 21"
 
-let dataSeparatedByComma = who.components(separatedBy: ",") // 콤마를 기준으로 정리 "dona: 27", "dev: 31", "anggo: 21"
+let dataSeparatedByComma = dataString.components(separatedBy: ",") // 콤마를 기준으로 정리 "dona: 27", "dev: 31", "anggo: 21"
 
 var dataDict: [String: Int] = [:]
 
