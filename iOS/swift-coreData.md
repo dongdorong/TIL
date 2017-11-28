@@ -57,7 +57,7 @@ override func viewDidLoad() {
 ```
 
 ### 저장한 Data 가져오기
-- NSFetchRequest:: Entity에 저장된 값을 받아 올 때 사용. NSFetchRequest를 통해서 "Person" Entity를 <NSManagedObject> 타입으로 리턴해서 값을 받아온다.
+- NSFetchRequest:: Entity에 저장된 값을 받아 올 때 사용. NSFetchRequest를 통해서 "Person" Entity를 NSManagedObject 타입으로 리턴해서 값을 받아온다.
 - NSPredicate:: 원하는 값을 가져올 때 사용. 데이터를 어떻게 Fetch할 것인지 패턴을 정의할 때 사용한다. ex) name의 "Dona" 값만 받아온다.
 - NSManagedObject 타입의 데이터를 받아 올 빈 배열 생성
 - DispatchQueue.global().async:: 많은 양의 데이터를 가져올때 화면이 멈춰보일 수 있으니 비동기로 처리
