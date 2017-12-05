@@ -141,3 +141,59 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
 }
 ```
+# 사용자의 위치 정보 받기
+- Build Phases > Link Binary With Libraries > CoreLocation framwork 추가
+- info.plist::
+	+ Privacy - Location When In Use Usage Description:: 위치 정보를 왜 알아야 하는지
+	+ Privacy - Location Always Usage Description:: 앱이 실행하지 않아도 위치 정보를 왜 알아야 하는지
+	+ 각각 알맞은 이유를 추가해준다.
+- import CoreLocation:: User의 위치 정보를 받아올수 있게 도와주는 framwork
+- CLLocationManagerDelegate:: 위치 정보의 변화가 있을때 ViewController에서 그 변화를 감지하고 처리 하겠다는 것
+- kCLLocationAccuracyBest:: 최고의 정확도로 위치 정보를 받아온다 `배터리 소모가 크다`
+- didUpdateLocations:: 위치 정보가 바뀔때 마다
+- coordinate:: 좌표
+- speed:: 속도
+- altitude:: 고도
+
+```swift
+import UIKit
+import CoreLocation
+
+class ViewController: UIViewController, CLLocationManagerDelegate {
+
+    // 위치 정보를 받아오는 도구
+    let locManager = CLLocationManager()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        // locManager의 delegate를 ViewController로 설정
+        locManager.delegate = self
+        
+        // 위치 정보를 받을때에는 사용자에게 허락을 항상 받는다.
+        locManager.requestAlwaysAuthorization()
+        
+        // 정확도 설정:: Best는 배터리 소모가 크다
+         locManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        // 위치 정보 받기 시작
+        locManager.startUpdatingLocation()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // 위치 정보가 변경될때마다 호출할 함수
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        
+        print(location.coordinate) // 좌표정보
+        print(location.speed) // 속도
+        print(location.altitude) // 고도
+    }
+
+}
+```
