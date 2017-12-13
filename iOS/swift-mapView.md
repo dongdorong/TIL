@@ -144,7 +144,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 # 사용자의 위치 정보 받기
 - Build Phases > Link Binary With Libraries > CoreLocation framwork 추가
 - info.plist::
-	+ Privacy - Location When In Use Usage Description:: 위치 정보를 왜 알아야 하는지
+	+ Privacy - Location Always and When In Use Usage Description:: 위치 정보를 왜 알아야 하는지
 	+ Privacy - Location Always Usage Description:: 앱이 실행하지 않아도 위치 정보를 왜 알아야 하는지
 	+ 각각 알맞은 이유를 추가해준다.
 - import CoreLocation:: User의 위치 정보를 받아올수 있게 도와주는 framwork
