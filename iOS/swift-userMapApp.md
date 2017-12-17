@@ -5,8 +5,8 @@
 - mark가 1개 보여지기 위해서는 didUpdateLocations에 mapView.removeAnnotations(mapView.annotations)를 써줘야한다.(누적이 안되도록)
 
 
-<src="/img/mapView_01.png" width="300">
-<src="/img/mapView_02.png" width="300">
+<img src="/img/mapView_01.png" width="300">
+<img src="/img/mapView_02.png" width="300">
 
 ### FirstViewController
  ```swift
