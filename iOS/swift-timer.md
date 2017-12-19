@@ -1,6 +1,6 @@
 # Timer
 - 0 ++ 타이머
-- Hours / Minutes / Seconds 로 제작하기 과제! syntax: [링크 참고](https://medium.com/ios-os-x-development/build-an-stopwatch-with-swift-3-0-c7040818a10f)
+- Hours / Minutes / Seconds 로 제작하기 과제! [링크 참고](https://medium.com/ios-os-x-development/build-an-stopwatch-with-swift-3-0-c7040818a10f)
 - timeInterval 초 단위
 
 
