@@ -10,7 +10,10 @@
 		+ true:: 1초가 지날때마다 호출
 		+ false:: 1번만 호출
 
+<img src="/img/timer.png" width="300">
 
+
+### 숫자가 ++ 카운트
 ```swift
 import UIKit
 
@@ -47,6 +50,79 @@ class ViewController: UIViewController {
         countNum.text = "\(seconds)"
         
     }
+    
+
+}
+```
+
+### 제대로 Timer 만들기 중
+- Hours / Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작해야함!!
+
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+    @IBOutlet weak var hoursCount: UILabel!
+    @IBOutlet weak var minutesCount: UILabel!
+    @IBOutlet weak var secondsCount: UILabel!
+    
+    var hours = 0
+    var minutes = 0
+    var seconds = 0
+
+    var timer = Timer()
+    
+    var isTimerRunning = false
+    
+    var resumeTapped = false
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    // Timer 초기화
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        print("1 Second ++")
+        seconds += 1
+        secondsCount.text = "\(seconds)"
+    }
+    
+    
+    @IBAction func reset(_ sender: UIButton) {
+        timer.invalidate()
+        seconds = 0
+        secondsCount.text = "\(seconds)"
+    }
+    
+    @IBAction func start(_ sender: UIButton) {
+        runTimer()
+    }
+    
+    
+    @IBAction func stop(_ sender: UIButton) {
+        if self.resumeTapped == false {
+            timer.invalidate()
+            self.resumeTapped = true
+        }else{
+            runTimer()
+            self.resumeTapped = false
+        }
+        
+    }
+    
+//    func timeString(time: TimeInterval) -> String {
+//        let hours = Int(time) / 3600
+//        let minutes = Int(time) / 60 % 60
+//        let seconds = Int(time) % 60
+//
+//        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+//    }
     
 
 }
