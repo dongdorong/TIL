@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 ```
 
 ### 제대로 Timer 만들기 중
-- Hours / Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작해야함!!
+- Hours / Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작해야함!! [링크 참고](https://www.youtube.com/watch?v=82SXeAmZwk8)
 
 
 ```swift
