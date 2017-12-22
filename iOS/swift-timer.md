@@ -61,6 +61,7 @@ class ViewController: UIViewController {
 - 버튼 이미지 변경
 - 테이블 뷰에 랩 추가
 - 숫자가 바뀔때마다 텍스트가 덜덜 떨리는 것들을 여러가지 테스트 해보며 고정시킴
+- `테이블 뷰를 터치할때마다 timer가 정지되는 것 같이 보이는 문제 해결해야함! (다음과제)`
 
 <img src="/img/dona_timer.png" width="300">
 
