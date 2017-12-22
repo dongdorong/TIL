@@ -55,75 +55,138 @@ class ViewController: UIViewController {
 }
 ```
 
-### 제대로 Timer 만들기 중
-- Hours / Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작해야함!! [링크 참고](https://www.youtube.com/watch?v=82SXeAmZwk8)
+### 제대로 Timer
+- Hours / Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작!! [링크 참고](https://www.youtube.com/watch?v=82SXeAmZwk8)
 
+<img src="/img/dona_timer.png" width="300">
 
 ```swift
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var hoursCount: UILabel!
-    @IBOutlet weak var minutesCount: UILabel!
-    @IBOutlet weak var secondsCount: UILabel!
+class ViewController: UIViewController, UITableViewDataSource {
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var timeTable: UITableView!
     
-    var hours = 0
-    var minutes = 0
-    var seconds = 0
-
+    @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var lapResetButton: UIButton!
+    
     var timer = Timer()
     
-    var isTimerRunning = false
+    var laps:[String] = []
     
-    var resumeTapped = false
+    var minutes = 0
+    var seconds = 0
+    var fractions = 0
+    
+    var isTimerRunning = true
+    var lapTapped = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // label 초기값 지정
+        countLabel.text = "00:00.00"
+        
     }
     
     // Timer 초기화
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
-        print("1 Second ++")
-        seconds += 1
-        secondsCount.text = "\(seconds)"
+        fractions += 1
+        
+        if fractions == 100 {
+            seconds += 1
+            fractions = 0
+        }
+        
+        if seconds == 60 {
+            minutes += 1
+            seconds = 0
+        }
+        
+        let fractionsString = fractions > 9 ? "\(fractions)" : "0\(fractions)"
+        let secondsString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+        let minutesString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        
+        countLabel.text = "\(minutesString):\(secondsString).\(fractionsString)"
+        
     }
     
-    
-    @IBAction func reset(_ sender: UIButton) {
-        timer.invalidate()
-        seconds = 0
-        secondsCount.text = "\(seconds)"
-    }
-    
-    @IBAction func start(_ sender: UIButton) {
-        runTimer()
-    }
-    
-    
-    @IBAction func stop(_ sender: UIButton) {
-        if self.resumeTapped == false {
-            timer.invalidate()
-            self.resumeTapped = true
-        }else{
+    @IBAction func startStop(_ sender: UIButton) {
+        if isTimerRunning == true{
             runTimer()
-            self.resumeTapped = false
+            isTimerRunning = false
+            
+            // image change
+            startStopButton.setImage(UIImage(named: "stop.png"), for: .normal)
+            
+            lapResetButton.setImage(UIImage(named: "lap"), for: .normal)
+            
+            lapTapped = true
+            
+        }else{
+            timer.invalidate()
+            isTimerRunning = true
+            
+            // image change
+            startStopButton.setImage(UIImage(named: "start.png"), for: .normal)
+            
+            lapResetButton.setImage(UIImage(named: "reset.png"), for: .normal)
+            
+            lapTapped = false
+        }
+    }
+    
+    @IBAction func lapReset(_ sender: UIButton) {
+        if lapTapped == true {
+            
+            laps.insert(countLabel.text!, at: 0) // 0번 인덱스에 텍스트 지정
+            timeTable.reloadData()
+            
+        }else{
+            
+//            lapTapped = false // false 지정해 주는 방법도 있음
+            
+            lapResetButton.setImage(UIImage(named: "lap.png"), for: .normal)
+            
+            timer.invalidate()
+            laps.removeAll()
+            timeTable.reloadData()
+            
+            fractions = 0
+            seconds = 0
+            minutes = 0
+            
+            countLabel.text = "00:00.00"
+            
         }
         
     }
     
-//    func timeString(time: TimeInterval) -> String {
-//        let hours = Int(time) / 3600
-//        let minutes = Int(time) / 60 % 60
-//        let seconds = Int(time) % 60
-//
-//        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
-//    }
+    //table
     
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return laps.count
+    }
+    
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+        
+        cell.backgroundColor = self.view.backgroundColor
+        
+        cell.textLabel?.text = "Lap \(laps.count - indexPath.row)" // 전체 array 수 - 인덱스 row
+        
+        cell.detailTextLabel?.text = laps[indexPath.row]
+        
+        return cell
+    }
+
 
 }
 ```
