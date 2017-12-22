@@ -57,7 +57,7 @@ class ViewController: UIViewController {
 
 
 # 제대로 Timer
-- Hours / Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작!! [링크 참고](https://www.youtube.com/watch?v=82SXeAmZwk8)
+- Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작!! [링크 참고](https://www.youtube.com/watch?v=82SXeAmZwk8)
 
 <img src="/img/dona_timer.png" width="300">
 
