@@ -58,6 +58,9 @@ class ViewController: UIViewController {
 
 # 제대로 Timer
 - Minutes / Seconds 에 format과 제약 등등 잘 생각해서 제작!! [링크 참고](https://www.youtube.com/watch?v=82SXeAmZwk8)
+- 버튼 이미지 변경
+- 테이블 뷰에 랩 추가
+- 숫자가 바뀔때마다 텍스트가 덜덜 떨리는 것들을 여러가지 테스트 해보며 고정시킴
 
 <img src="/img/dona_timer.png" width="300">
 
