@@ -62,6 +62,7 @@ class ViewController: UIViewController {
 - 테이블 뷰에 랩 추가
 - 숫자가 바뀔때마다 텍스트가 덜덜 떨리는 것들을 여러가지 테스트 해보며 고정시킴
 - `테이블 뷰를 터치할때마다 timer가 정지되는 것 같이 보이는 문제 해결해야함! (다음과제)`
+	+ RunLoop.current.add(timer, forMode: .commonModes):: 스크롤링을 해도 타이머가 계속 돌아가보이도록 함. runTimer 함수에 추가해줬음 [링크 참고](https://forums.developer.apple.com/thread/69387)
 
 <img src="/img/dona_timer.png" width="300">
 
@@ -97,7 +98,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // Timer 초기화
     func runTimer() {
+
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+
+	RunLoop.current.add(timer, forMode: .commonModes)
+
     }
     
     @objc func updateTimer() {
