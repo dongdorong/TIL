@@ -51,3 +51,5 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
         return true
 }
 ```
+
+<img src="/img/fire.jpg" width="500">
