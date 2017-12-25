@@ -5,4 +5,4 @@
 - 파일 확장자 .md (Markdown documents)
 - 언어명으로 폴더를 생성한다.
 
-<img src="/img/desktop.png" width="500">
+<img src="/img/desktop.jpg" width="500">
