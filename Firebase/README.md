@@ -52,4 +52,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-<img src="/img/fire.jpg" width="500">
+### X-code Project 다시 실행
+
+<img src="/img/firebase.png" width="200">
+
+`이 아이콘으로 된 프로젝트로 재 실행하여 firebase 사용한다.`
