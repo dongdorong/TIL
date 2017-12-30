@@ -57,3 +57,11 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 <img src="/img/firebase.png" width="200">
 
 `이 아이콘으로 된 프로젝트로 재 실행하여 firebase 사용한다.`
+
+```
+Pods > Podfile 경로
+
+pod 'Firebase/Database'
+
+추가해야 import FirebaseDatabase를 사용할 수 있다.
+```
