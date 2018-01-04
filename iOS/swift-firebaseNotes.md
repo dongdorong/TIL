@@ -1,6 +1,6 @@
 # FirebaseNotes
 - 시간순으로 저장안되는 문제 해결해야함(현재 알파벳순으로 나열)
-- Console > Database > 규칙 true로 변경
+- Firebase site에서 Console > Database > 규칙 true로 변경
 ```
 {
   "rules": {
