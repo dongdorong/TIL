@@ -1,7 +1,25 @@
 # Login 
 - 간단한 로그인 페이지를 만든다.
+- Coredata 사용
 
 <img src="/img/login-system.png" width="500">
+
+## Login.xcdatamodeld
+
+```
+새로운 ENTITES 생성
+
+User
+```
+
+```
+Attributes 생성:: 저장할 정보들
+
+id String
+name String
+password String
+birth String
+```
 
 ## ViewController
 
