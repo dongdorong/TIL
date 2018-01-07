@@ -1,6 +1,7 @@
 # FirebaseNotes
-- 시간대별로 저장안되는 문제 해결해야함(현재 한글로 나열)
-- Console > Database > 규칙 true로 변경
+- 시간순으로 저장안되는 문제 해결해야함(현재 알파벳순으로 나열)
+- .......점 입력을 할 경우 앱이 죽는 현상 해결해야함
+- Firebase site에서 Console > Database > 규칙 true로 변경
 ```
 {
   "rules": {
