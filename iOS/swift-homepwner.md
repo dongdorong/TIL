@@ -1,7 +1,5 @@
 # Homepwner
 
-<img src="/img/homepwner.png" width="300">
-
 ### itemViewController.swift
 ```swift
 
