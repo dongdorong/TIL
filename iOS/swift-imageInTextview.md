@@ -1,4 +1,5 @@
 # Image In UITextView
+- 링크참고: (https://stackoverflow.com/a/30417310)
 - UItextView안에 이미지를 넣고 싶을때!
 - viewDidLoade or viewWillAppear에 사용하고 있다.
 - contentMode 맞추는 작업 해야함.
